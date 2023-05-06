@@ -58,7 +58,6 @@ Please use the below command to run the program
 ## Observations:
 
 1. Some post code values were being counted separately because they had different letter cases, which could lead to incorrect counting. To prevent this, I converted all post codes to uppercase before aggregating them. 
-
 For example, the model "Raption LP50-3" had entries for post codes "TW6 2RQ" and "tw6 2rq", which were counted as separate entries until they were converted to the same uppercase format.
 
 2. The code assumes that the access key and secret key will be extracted for the IAM user and passed as a parameter. However, if the program is executed on an EC2 instance, it can be created with an attached IAM role and the program will automatically inherit the permissions of the attached IAM role, eliminating the need to pass the access key explicitly. The script needs to be modified accordingly to reflect this.
