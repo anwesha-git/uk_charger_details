@@ -55,6 +55,8 @@ Please use the below command to run the program
 
 ```python chargepointdetails_to_S3.py &lt;access-key> &lt;secret-key> &lt;bucket-name>```
 
+The output csv file [link](https://uk-ev-charge-model-anwesha.s3.eu-north-1.amazonaws.com/charger_models_UK.csv) 
+
 ## Observations:
 
 1. Some post code values were being counted separately because they had different letter cases, which could lead to incorrect counting. To prevent this, I converted all post codes to uppercase before aggregating them. 
