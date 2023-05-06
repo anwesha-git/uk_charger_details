@@ -7,9 +7,7 @@ The python program to collect the charge points data for electric vehicles in th
 
 1. Install necessary python libraries
 
-   boto3,pandas
-
-   &lt;pip install lib>
+   ```pip install boto3, pandas```
 
 2. Create/Choose a S3 bucket 
 
@@ -43,19 +41,19 @@ The program is structured into three main functions:
 
 Python code that retrieves the charge points data from the API, processes the data and writes the result to a CSV file on AWS S3. This code consists of several functions with comments explaining their purpose. It also takes the name of the S3 bucket as an argument to which they want to write the CSV file.
 
-The main() function is the entry point of the program. It first gets the arguments like keys for AWS access and bucket details and then define the entry point, url and csv file, where the data will be stored.
+The ```main()``` function is the entry point of the program. It first gets the arguments like keys for AWS access and bucket details and then define the entry point, url and csv file, where the data will be stored.
 
-get_url() will get the url response and retrieve_charge_points_data() will retrieves the charge points data from the API and returns it as a JSON object after verifying the successful API status with check_api_status()
+```get_url()``` will get the url response and ```retrieve_charge_points_data()``` will retrieves the charge points data from the API and returns it as a JSON object after verifying the successful API status with ```check_api_status()```
 
-process_json_to_csv() processes the charge point data by extracting the relevant counts and column columns and filtering out entries with no charge device model. 
+```process_json_to_csv()``` processes the charge point data by extracting the relevant counts and column columns and filtering out entries with no charge device model. 
 
-upload_csv_to_S3() connects to an S3 bucket and uploads the given CSV data to the specified bucket
+```upload_csv_to_S3()``` connects to an S3 bucket and uploads the given CSV data to the specified bucket
 
 ### Running the program:
 
 Please use the below command to run the program
 
-python chargepointdetails_to_S3.py &lt;access-key> &lt;secret-key> &lt;bucket-name>
+```python chargepointdetails_to_S3.py &lt;access-key> &lt;secret-key> &lt;bucket-name>```
 
 ## Observations:
 
