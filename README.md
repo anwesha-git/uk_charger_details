@@ -7,7 +7,7 @@ The python program to collect the charge points data for electric vehicles in th
 
 1. Install necessary python libraries
 
-   ```pip install boto3, pandas```
+   ```pip install requests pandas boto3```
 
 2. Create/Choose a S3 bucket 
 
@@ -63,3 +63,5 @@ The output csv file [link](https://uk-ev-charge-model-anwesha.s3.eu-north-1.amaz
 For example, the model "Raption LP50-3" had entries for post codes "TW6 2RQ" and "tw6 2rq", which were counted as separate entries until they were converted to the same uppercase format.
 
 2. The code assumes that the access key and secret key will be extracted for the IAM user and passed as a parameter. However, if the program is executed on an EC2 instance, it can be created with an attached IAM role and the program will automatically inherit the permissions of the attached IAM role, eliminating the need to pass the access key explicitly. The script needs to be modified accordingly to reflect this.
+
+3. The current code assumes that the entire API response is loaded into the JSON object. However, if the API response is too large to be loaded entirely, we can use the "requests" library to stream the response and process the data in chunks. To do so, the code must be modified to handle the data processing iteratively by appending the processed chunks to the output.
